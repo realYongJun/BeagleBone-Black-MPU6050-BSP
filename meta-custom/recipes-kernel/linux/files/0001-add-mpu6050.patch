@@ -1,0 +1,16 @@
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -167,3 +167,13 @@
+                "[NC]",
+                "[NC]";
+ };
++
++&i2c2 {
++        status = "okay";
++        clock-frequency = <100000>;
++
++        mpu6050@68 {
++                compatible = "invensense,mpu6050";
++                reg = <0x68>;
++        };
++};

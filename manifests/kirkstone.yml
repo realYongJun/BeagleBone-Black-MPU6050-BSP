@@ -1,0 +1,43 @@
+header:
+  version: 14
+
+machine: beaglebone-yocto
+distro: poky
+target: core-image-mpu6050
+
+repos:
+  bbb-project:
+    layers:
+      meta-custom:
+
+  poky:
+    url: https://git.yoctoproject.org/poky
+    commit: 393064579dfdd0ed2d4ed4c27d238d7d2292c08b
+    layers:
+      meta:
+      meta-poky:
+      meta-yocto-bsp:
+
+  meta-ti:
+    url: https://git.yoctoproject.org/git/meta-ti
+    commit: 242846833a9f1b05b95fb9335ed01668bc0eef7e
+    layers:
+      meta-ti-bsp:
+
+  meta-arm:
+    url: https://git.yoctoproject.org/git/meta-arm
+    commit: c3e9fb12aa31d25e33d8392c4a233ed1275a3278
+    layers:
+      meta-arm:
+      meta-arm-toolchain:
+
+local_conf_header:
+  bbb-project: |
+    PREFERRED_PROVIDER_virtual/kernel = "linux-ti-staging"
+    PREFERRED_VERSION_linux-ti-staging = "5.10%"
+
+    KERNEL_MODULE_AUTOLOAD += "g_ether"
+
+    EXTRA_IMAGE_FEATURES = "debug-tweaks"
+    PATCHRESOLVE = "noop"
+    CONF_VERSION = "2"

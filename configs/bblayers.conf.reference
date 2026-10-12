@@ -1,0 +1,16 @@
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  /home/lee/workspace/yocto/poky/meta \
+  /home/lee/workspace/yocto/poky/meta-poky \
+  /home/lee/workspace/yocto/poky/meta-yocto-bsp \
+  /home/lee/workspace/yocto/poky/meta-custom \
+  /home/lee/workspace/yocto/poky/meta-arm/meta-arm-toolchain \
+  /home/lee/workspace/yocto/poky/meta-arm/meta-arm \
+  /home/lee/workspace/yocto/poky/meta-ti/meta-ti-bsp \
+  "
